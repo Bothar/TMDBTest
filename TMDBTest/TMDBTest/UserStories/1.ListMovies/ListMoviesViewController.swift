@@ -13,13 +13,18 @@ class ListMoviesViewController: UIViewController {
     
     let networkManager = NetworkManager.shared
     var movies: [Movie] = []
-    var page = 1
+    var page = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         TVmovies.delegate = self
         TVmovies.dataSource = self
-        networkManager.requestPopularMovies(atPage: page) { [weak self] succes, movies in
+        loadMoreMovies()
+    }
+    
+    private func loadMoreMovies() {
+        self.page += 1
+        self.networkManager.requestPopularMovies(atPage: page) { [weak self] succes, movies in
             if succes {
                 self?.movies += movies
                 self?.TVmovies.reloadData()
@@ -38,6 +43,10 @@ extension ListMoviesViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //When we load the last cell, we need to request more movies
+        if (indexPath.row+1 == self.movies.count) {
+            self.loadMoreMovies()
+        }
         let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell", for: indexPath) as! MovieTableViewCell
         let movie = self.movies[indexPath.row]
         cell.titleLabel.text = movie.title
