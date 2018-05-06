@@ -7,7 +7,6 @@ target 'TMDBTest' do
 
   # Pods for TMDBTest
   pod 'Alamofire’
-
-
+  pod 'AlamofireImage'
 
 end

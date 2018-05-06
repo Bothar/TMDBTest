@@ -10,6 +10,8 @@ import UIKit
 
 class MovieTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var yearLabel: UILabel!
+    @IBOutlet weak var imageview: UIImageView!
     
 
 }

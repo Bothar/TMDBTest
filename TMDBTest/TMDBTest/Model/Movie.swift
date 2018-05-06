@@ -7,17 +7,18 @@
 //
 
 import Foundation
+import UIKit
 
 class Movie {
     let title: String
     let year: String
     let overview: String
-    let imageUrl: String
+    let image: UIImage
     
-    init(title: String, year: String, overview: String, imageUrl: String) {
+    init(title: String, year: String, overview: String, image: UIImage) {
         self.title = title
         self.year = year
         self.overview = overview
-        self.imageUrl = imageUrl
+        self.image = image
     }
 }

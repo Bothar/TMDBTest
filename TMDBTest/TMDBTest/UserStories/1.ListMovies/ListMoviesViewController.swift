@@ -19,7 +19,11 @@ class ListMoviesViewController: UIViewController {
         super.viewDidLoad()
         TVmovies.delegate = self
         TVmovies.dataSource = self
-        loadMoreMovies()
+        networkManager.configNetwork() { [weak self] succes in
+            if succes {
+                self?.loadMoreMovies()
+            }
+        }
     }
     
     private func loadMoreMovies() {
@@ -50,6 +54,8 @@ extension ListMoviesViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "movieCell", for: indexPath) as! MovieTableViewCell
         let movie = self.movies[indexPath.row]
         cell.titleLabel.text = movie.title
+        cell.yearLabel.text = movie.year
+        cell.imageview.image = movie.image
         return cell
     }
     
