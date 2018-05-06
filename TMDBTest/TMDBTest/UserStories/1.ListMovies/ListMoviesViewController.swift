@@ -115,5 +115,9 @@ extension ListMoviesViewController: UISearchBarDelegate {
             TVmovies.reloadData()
         }
     }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.searchBar.resignFirstResponder()
+    }
 }
 
