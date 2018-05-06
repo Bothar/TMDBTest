@@ -18,6 +18,7 @@
 		2DC65FF9209F0C4A007DD144 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC65FF8209F0C4A007DD144 /* MovieTableViewCell.swift */; };
 		2DC65FFC209F1A0A007DD144 /* MovieDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DC65FFB209F1A0A007DD144 /* MovieDetail.storyboard */; };
 		2DC65FFE209F1AB3007DD144 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC65FFD209F1AB3007DD144 /* MovieDetailViewController.swift */; };
+		2DC66000209F1DAD007DD144 /* JsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC65FFF209F1DAD007DD144 /* JsonParser.swift */; };
 		42CA616A0F2C62F9155F500F /* Pods_TMDBTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53F4E1D7AF725A4F79B5FF8E /* Pods_TMDBTest.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +37,7 @@
 		2DC65FF8209F0C4A007DD144 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 		2DC65FFB209F1A0A007DD144 /* MovieDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MovieDetail.storyboard; sourceTree = "<group>"; };
 		2DC65FFD209F1AB3007DD144 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
+		2DC65FFF209F1DAD007DD144 /* JsonParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonParser.swift; sourceTree = "<group>"; };
 		53F4E1D7AF725A4F79B5FF8E /* Pods_TMDBTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TMDBTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A02620AB44C31A55D98892CA /* Pods-TMDBTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMDBTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TMDBTest/Pods-TMDBTest.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -89,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				2DC65FEE209F0498007DD144 /* Constants.swift */,
+				2DC65FFF209F1DAD007DD144 /* JsonParser.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 			files = (
 				2DC65FDE209F046F007DD144 /* ListMoviesViewController.swift in Sources */,
 				2DC65FDC209F046F007DD144 /* AppDelegate.swift in Sources */,
+				2DC66000209F1DAD007DD144 /* JsonParser.swift in Sources */,
 				2DC65FF9209F0C4A007DD144 /* MovieTableViewCell.swift in Sources */,
 				2DC65FF5209F04C6007DD144 /* NetworkManager.swift in Sources */,
 				2DC65FFE209F1AB3007DD144 /* MovieDetailViewController.swift in Sources */,

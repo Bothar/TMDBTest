@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="f05-99-T1K">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="76" width="375" height="591"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="movieCell" rowHeight="65" id="Zlf-kG-wx7" customClass="MovieTableViewCell" customModule="TMDBTest" customModuleProvider="target">
@@ -74,18 +74,28 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="otZ-Q8-hO6">
+                                <rect key="frame" x="0.0" y="20" width="375" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="otZ-Q8-hO6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="0gm-F3-pa9"/>
+                            <constraint firstItem="f05-99-T1K" firstAttribute="top" secondItem="otZ-Q8-hO6" secondAttribute="bottom" id="17P-zg-x8T"/>
                             <constraint firstItem="f05-99-T1K" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="6XS-os-Nii"/>
+                            <constraint firstItem="otZ-Q8-hO6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Hui-Ak-g9F"/>
                             <constraint firstItem="f05-99-T1K" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="QCw-XE-as0"/>
-                            <constraint firstItem="f05-99-T1K" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="dOq-n3-3pj"/>
                             <constraint firstItem="f05-99-T1K" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="pSf-5s-mRv"/>
+                            <constraint firstItem="otZ-Q8-hO6" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="rUU-f9-dih"/>
+                            <constraint firstItem="otZ-Q8-hO6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="rrf-Wo-MpM"/>
+                            <constraint firstItem="otZ-Q8-hO6" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="tge-hP-bIo"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="TVmovies" destination="f05-99-T1K" id="XgX-TN-kY4"/>
+                        <outlet property="searchBar" destination="otZ-Q8-hO6" id="meA-lF-buf"/>
                         <segue destination="jrB-Ez-Knh" kind="show" identifier="toDetail" id="8E4-D1-Yid"/>
                     </connections>
                 </viewController>

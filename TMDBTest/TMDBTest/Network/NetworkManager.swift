@@ -39,15 +39,14 @@ class NetworkManager {
             .responseJSON { response in
                 switch(response.result) {
                 case .success(let JSON):
-                    guard let JSON = JSON as? [String: Any],
-                        let imagesConfig = JSON[Constants.kIMAGES_KEY] as? [String: Any],
-                        let secureBaseUrl = imagesConfig[Constants.kSECURE_BASE_URL_KEY] as? String,
-                        let posterSizes = imagesConfig[Constants.kPOSTER_SIZES_KEY] as? [String] else {
-                            completion(false, nil)
-                            return
+                    guard let JSON = JSON as? [String: Any] else {
+                        completion(false, nil)
+                        return
                     }
-                    //Getting the 4rth element which is an acceptable size
-                    completion(true,"\(secureBaseUrl)\(posterSizes[3])")
+                    JsonParser.parseConfigJson(JSON) { baseURL in
+                        completion(true, baseURL)
+                    }
+                       
                 case .failure(let error):
                     print(error.localizedDescription)
                     completion(false,nil)
@@ -68,39 +67,41 @@ class NetworkManager {
             .responseJSON { response in
                 switch(response.result) {
                 case .success(let JSON):
-                    guard let JSON = JSON as? [String: Any],
-                        let results = JSON[Constants.kRESULTS_KEY] as? [[String: Any]] else {
-                            completion(false,[])
-                            return
+                    guard let JSON = JSON as? [String: Any] else {
+                        completion(false, [])
+                        return
                     }
-                    var movies: [Movie] = []
-                    //TaskGroup to notify when all images are downloaded
-                    let taskGroup = DispatchGroup()
-                    for movieData in results {
-                        if let title = movieData[Constants.kTITLE_KEY] as? String,
-                            let date = movieData[Constants.kRELEASE_DATE_KEY] as? String,
-                            let overview = movieData[Constants.kOVERVIEW_KEY] as? String,
-                            let posterPath = movieData[Constants.kPOSTER_PATH_KEY] as? String {
-                            
-                            //We only want the year (first 4 characters)
-                            let year = String(date.prefix(4))
-                            
-                            taskGroup.enter()
-                            self.downloadImage(fromURL: posterPath) { succes , image in
-                                if (succes) {
-                                    let movie = Movie(title: title, year: year, overview: overview, image: image!)
-                                    movies.append(movie)
-                                } else {
-                                    taskGroup.leave()
-                                }
-                            }
-                           
-                        }
-                    }
-                    taskGroup.notify(queue: DispatchQueue.main, execute: {
+                    JsonParser.parseJsonMovies(JSON) { movies in
                         completion(true, movies)
-                    })
-                    
+                    }
+                
+                case .failure(let error):
+                    print(error.localizedDescription)
+                    completion(false, [])
+                }
+        }
+    }
+    
+    func requestMovies(atPage page: Int, withKeyword keyword: String, completion: @escaping(Bool, [Movie]) -> ()) {
+        let parameters:Parameters = [
+            Constants.kAPI_KEY: Constants.kAPI_KEY_VALUE,
+            Constants.kPAGE_KEY: page,
+            Constants.kQUERY_KEY: keyword
+        ]
+        
+        let url = Constants.kBASE_URL + Constants.kURL_SEARCH
+        
+        Alamofire.request(url, method: .get, parameters: parameters, encoding: URLEncoding(destination: .queryString))
+            .responseJSON { response in
+                switch (response.result) {
+                case .success(let JSON):
+                    guard let JSON = JSON as? [String: Any] else {
+                        completion(false, [])
+                        return
+                    }
+                    JsonParser.parseJsonMovies(JSON) { movies in
+                        completion(true, movies)
+                    }
                 case .failure(let error):
                     print(error.localizedDescription)
                     completion(false, [])
