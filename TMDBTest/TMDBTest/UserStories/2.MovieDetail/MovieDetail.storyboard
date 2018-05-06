@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LUR-LW-se7">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Movie Detail View Controller-->
+        <scene sceneID="saO-FE-dHy">
+            <objects>
+                <viewController id="LUR-LW-se7" customClass="MovieDetailViewController" customModule="TMDBTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qIv-Du-qW2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dtb-90-IEC">
+                                <rect key="frame" x="0.0" y="20" width="375" height="140"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="140" id="qpc-eq-vMT"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CLI-2v-q18">
+                                <rect key="frame" x="8" y="168" width="359" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1994" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yFV-49-E90">
+                                <rect key="frame" x="8" y="192.5" width="359" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ham-MW-f1B">
+                                <rect key="frame" x="8" y="229.5" width="359" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5b2-iF-H8F">
+                                <rect key="frame" x="8" y="28" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="bAL-Ks-tPp"/>
+                                    <constraint firstAttribute="height" constant="20" id="nsK-ej-dYZ"/>
+                                </constraints>
+                                <state key="normal" image="backButton"/>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="LUR-LW-se7" eventType="touchUpInside" id="q0M-Aw-it1"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="bAH-mF-FZw" firstAttribute="trailing" secondItem="CLI-2v-q18" secondAttribute="trailing" constant="8" id="0g5-8S-XAj"/>
+                            <constraint firstItem="5b2-iF-H8F" firstAttribute="top" secondItem="bAH-mF-FZw" secondAttribute="top" constant="8" id="1uq-O1-nFH"/>
+                            <constraint firstItem="ham-MW-f1B" firstAttribute="top" secondItem="yFV-49-E90" secondAttribute="bottom" constant="16" id="6s7-Kc-n46"/>
+                            <constraint firstItem="bAH-mF-FZw" firstAttribute="trailing" secondItem="ham-MW-f1B" secondAttribute="trailing" constant="8" id="Aqu-ss-3Pg"/>
+                            <constraint firstItem="ham-MW-f1B" firstAttribute="leading" secondItem="bAH-mF-FZw" secondAttribute="leading" constant="8" id="FzQ-qY-8Tu"/>
+                            <constraint firstItem="dtb-90-IEC" firstAttribute="trailing" secondItem="bAH-mF-FZw" secondAttribute="trailing" id="Ic3-IS-H5o"/>
+                            <constraint firstItem="bAH-mF-FZw" firstAttribute="trailing" secondItem="yFV-49-E90" secondAttribute="trailing" constant="8" id="KI6-Uw-R5A"/>
+                            <constraint firstItem="CLI-2v-q18" firstAttribute="leading" secondItem="bAH-mF-FZw" secondAttribute="leading" constant="8" id="MWl-vy-QBh"/>
+                            <constraint firstItem="yFV-49-E90" firstAttribute="top" secondItem="CLI-2v-q18" secondAttribute="bottom" constant="4" id="Mt6-eL-ufV"/>
+                            <constraint firstItem="5b2-iF-H8F" firstAttribute="leading" secondItem="bAH-mF-FZw" secondAttribute="leading" constant="8" id="PD5-i1-Paq"/>
+                            <constraint firstItem="yFV-49-E90" firstAttribute="leading" secondItem="bAH-mF-FZw" secondAttribute="leading" constant="8" id="Sd4-zU-zH4"/>
+                            <constraint firstItem="dtb-90-IEC" firstAttribute="leading" secondItem="bAH-mF-FZw" secondAttribute="leading" id="gMP-CK-pN7"/>
+                            <constraint firstItem="CLI-2v-q18" firstAttribute="top" secondItem="dtb-90-IEC" secondAttribute="bottom" constant="8" id="gQU-Xr-ZdW"/>
+                            <constraint firstItem="dtb-90-IEC" firstAttribute="top" secondItem="bAH-mF-FZw" secondAttribute="top" id="yao-Ww-3U9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="bAH-mF-FZw"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ngl-iq-tgt"/>
+                    <connections>
+                        <outlet property="imageView" destination="dtb-90-IEC" id="Wla-NG-jff"/>
+                        <outlet property="overViewLabel" destination="ham-MW-f1B" id="Xwf-v5-Z08"/>
+                        <outlet property="titleLabel" destination="CLI-2v-q18" id="lhz-qU-gAb"/>
+                        <outlet property="yearLabel" destination="yFV-49-E90" id="8Wg-LH-TRY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lGH-tb-p4k" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="129" y="72"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="backButton" width="483" height="874"/>
+    </resources>
+</document>

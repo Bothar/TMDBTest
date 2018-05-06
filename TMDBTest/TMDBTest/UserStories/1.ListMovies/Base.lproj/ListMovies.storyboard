@@ -86,11 +86,20 @@
                     </view>
                     <connections>
                         <outlet property="TVmovies" destination="f05-99-T1K" id="XgX-TN-kY4"/>
+                        <segue destination="jrB-Ez-Knh" kind="show" identifier="toDetail" id="8E4-D1-Yid"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="132.68365817091455"/>
+        </scene>
+        <!--MovieDetail-->
+        <scene sceneID="xev-Ns-y4h">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MovieDetail" id="jrB-Ez-Knh" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vnj-tQ-zcc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="873" y="14"/>
         </scene>
     </scenes>
 </document>

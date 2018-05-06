@@ -46,8 +46,8 @@ class NetworkManager {
                             completion(false, nil)
                             return
                     }
-                    //Getting the first size of the list received
-                    completion(true,"\(secureBaseUrl)\(posterSizes.first!)")
+                    //Getting the 4rth element which is an acceptable size
+                    completion(true,"\(secureBaseUrl)\(posterSizes[3])")
                 case .failure(let error):
                     print(error.localizedDescription)
                     completion(false,nil)

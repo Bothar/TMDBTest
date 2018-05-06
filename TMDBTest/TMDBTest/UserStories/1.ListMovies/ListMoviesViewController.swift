@@ -14,6 +14,7 @@ class ListMoviesViewController: UIViewController {
     let networkManager = NetworkManager.shared
     var movies: [Movie] = []
     var page = 0
+    var rowSelected = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +34,14 @@ class ListMoviesViewController: UIViewController {
                 self?.movies += movies
                 self?.TVmovies.reloadData()
             }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toDetail" {
+            let movie = movies[rowSelected]
+            let nextVC = segue.destination as! MovieDetailViewController
+            nextVC.movie = movie
         }
     }
 }
@@ -57,6 +66,11 @@ extension ListMoviesViewController: UITableViewDelegate, UITableViewDataSource {
         cell.yearLabel.text = movie.year
         cell.imageview.image = movie.image
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.rowSelected = indexPath.row
+        self.performSegue(withIdentifier: "toDetail", sender: nil)
     }
     
 }
