@@ -7,3 +7,10 @@
 //
 
 import Foundation
+import Alamofire
+
+class NetworkManager {
+    static let shared = NetworkManager()
+    
+    private init() {}
+}

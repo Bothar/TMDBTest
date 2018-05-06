@@ -7,3 +7,17 @@
 //
 
 import Foundation
+
+class Movie {
+    let title: String
+    let year: String
+    let overview: String
+    let imageUrl: String
+    
+    init(title: String, year: String, overview: String, imageUrl: String) {
+        self.title = title
+        self.year = year
+        self.overview = overview
+        self.imageUrl = imageUrl
+    }
+}
